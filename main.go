@@ -8,13 +8,15 @@ import (
 	"fyne.io/fyne/app"
 	"fyne.io/fyne/widget"
 	"go.uber.org/zap"
+
+	mylogger "github.com/fzls/logger"
 )
 
 var logger *zap.SugaredLogger
 
 func main() {
 	var err error
-	logger, err = initLogger()
+	logger, err = mylogger.NewLogger("logs", "setting_tool", "debug")
 	if err != nil {
 		panic(fmt.Sprintf("init logger failed, err=%v", err))
 	}
