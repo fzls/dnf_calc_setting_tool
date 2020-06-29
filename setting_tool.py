@@ -6,12 +6,13 @@ import os
 from 装备函数 import *
 from PySide2.QtWidgets import QApplication, QMessageBox
 from PySide2.QtUiTools import QUiLoader
+import shutil
 
 # 读取yaml文件
 def readyaml(file = "../setting/account_other_bonus_attributes.yaml"):
     try:
-        fr = open(file, 'r')
-        config = yaml.load(fr)
+        fr = open(file, 'r', encoding='utf-8')
+        config = yaml.load(fr, Loader=yaml.FullLoader)
     except FileNotFoundError:
         app = QApplication([])
         msgBox = QMessageBox(QMessageBox.Critical, '错误','找不到配置文件!')
@@ -20,7 +21,12 @@ def readyaml(file = "../setting/account_other_bonus_attributes.yaml"):
 
 # 向yaml文件中写入配置
 def writeyaml(file, data):
-    fr = open(file, 'w')
+    file_bk = file + ".bk"
+    if not os.path.isfile(file_bk):
+        # 若当前是首次使用配置工具，则写入前备份配置文件
+        shutil.copyfile(file, file_bk)
+
+    fr = open(file, 'w', encoding='utf-8')
     yaml.dump(data, fr, default_flow_style=False,encoding='utf-8',allow_unicode=True)
     fr.close()
 
@@ -526,7 +532,7 @@ class Config:
 
         # 主属性词条
         entries = []
-        if self.ui.attributesBox.currentIndex() == 0 or 1:
+        if self.ui.attributesBox.currentIndex() in [0, 1]:
             attributes = "strength_and_intelligence"
         else:
             attributes = "physical_and_mental_strength"
@@ -535,7 +541,7 @@ class Config:
         
         ## 武器
         # 强化
-        if self.ui.attackBox.currentIndex() == 1 or 2:
+        if self.ui.attackBox.currentIndex() in [1, 2]:
             if self.ui.weaponBox.currentIndex() != 0:
                 weapon_dict = {attack : 武器计算(100,"史诗",self.ui.weaponBox.currentIndex(),self.ui.type.currentText(),self.ui.attackBox.currentText())}
                 entries.append(weapon_dict)
@@ -586,7 +592,7 @@ class Config:
             coat_dict5 = {"extra_all_job_all_active_skill_lv_1_30" : 1}
             entries.append(coat_dict5)
         if self.ui.coatBadge.text() != "":
-            coat_dict6 = {"extra_all_element_strength" : int(self.ui.coatBadge.text())}
+            coat_dict6 = {attributes : int(self.ui.coatBadge.text())}
             entries.append(coat_dict6)
 
         ## 头肩
@@ -611,7 +617,7 @@ class Config:
             neck_dict5 = {"extra_all_job_all_active_skill_lv_1_30" : 1}
             entries.append(neck_dict5)
         if self.ui.neckBadge.text() != "":
-            neck_dict6 = {"extra_all_element_strength" : int(self.ui.neckBadge.text())}
+            neck_dict6 = {attributes : int(self.ui.neckBadge.text())}
             entries.append(neck_dict6)
 
         ## 下装
@@ -636,7 +642,7 @@ class Config:
             pants_dict5 = {"extra_all_job_all_active_skill_lv_1_30" : 1}
             entries.append(pants_dict5)
         if self.ui.pantsBadge.text() != "":
-            pants_dict6 = {"extra_all_element_strength" : int(self.ui.pantsBadge.text())}
+            pants_dict6 = {attributes : int(self.ui.pantsBadge.text())}
             entries.append(pants_dict6)
 
         ## 鞋
@@ -661,7 +667,7 @@ class Config:
             shoes_dict5 = {"extra_all_job_all_active_skill_lv_1_30" : 1}
             entries.append(shoes_dict5)
         if self.ui.shoesBadge.text() != "":
-            shoes_dict6 = {"extra_all_element_strength" : int(self.ui.shoesBadge.text())}
+            shoes_dict6 = {attributes : int(self.ui.shoesBadge.text())}
             entries.append(shoes_dict6)
 
         ## 腰带
@@ -686,7 +692,7 @@ class Config:
             belt_dict5 = {"extra_all_job_all_active_skill_lv_1_30" : 1}
             entries.append(belt_dict5)
         if self.ui.beltBadge.text() != "":
-            belt_dict6 = {"extra_all_element_strength" : int(self.ui.beltBadge.text())}
+            belt_dict6 = {attributes : int(self.ui.beltBadge.text())}
             entries.append(belt_dict6)
 
         ## 项链
@@ -711,7 +717,7 @@ class Config:
             necklace_dict5 = {"extra_all_job_all_active_skill_lv_1_30" : 1}
             entries.append(necklace_dict5)
         if self.ui.necklaceBadge.text() != "":
-            necklace_dict6 = {"extra_all_element_strength" : int(self.ui.necklaceBadge.text())}
+            necklace_dict6 = {attributes : int(self.ui.necklaceBadge.text())}
             entries.append(necklace_dict6)
 
         ## 手镯
@@ -740,7 +746,7 @@ class Config:
             bracelet_dict5 = {"extra_all_job_all_active_skill_lv_1_30" : 1}
             entries.append(bracelet_dict5)
         if self.ui.braceletBadge.text() != "":
-            bracelet_dict6 = {"extra_all_element_strength" : int(self.ui.braceletBadge.text())}
+            bracelet_dict6 = {attributes : int(self.ui.braceletBadge.text())}
             entries.append(bracelet_dict6)
 
         ## 戒指
@@ -765,7 +771,7 @@ class Config:
             ring_dict5 = {"extra_all_job_all_active_skill_lv_1_30" : 1}
             entries.append(ring_dict5)
         if self.ui.ringBadge.text() != "":
-            ring_dict6 = {"extra_all_element_strength" : int(self.ui.ringBadge.text())}
+            ring_dict6 = {attributes : int(self.ui.ringBadge.text())}
             entries.append(ring_dict6)
 
         ## 辅助装备
@@ -794,7 +800,7 @@ class Config:
             support_dict5 = {"extra_all_job_all_active_skill_lv_1_30" : 1}
             entries.append(support_dict5)
         if self.ui.supportBadge.text() != "":
-            support_dict6 = {"extra_all_element_strength" : int(self.ui.supportBadge.text())}
+            support_dict6 = {attributes : int(self.ui.supportBadge.text())}
             entries.append(support_dict6)
 
         ## 魔法石
@@ -823,7 +829,7 @@ class Config:
             magicstone_dict5 = {"extra_all_job_all_active_skill_lv_1_30" : 1}
             entries.append(magicstone_dict5)
         if self.ui.magicstoneBadge.text() != "":
-            magicstone_dict6 = {"extra_all_element_strength" : int(self.ui.magicstoneBadge.text())}
+            magicstone_dict6 = {attributes : int(self.ui.magicstoneBadge.text())}
             entries.append(magicstone_dict6)
 
         ## 耳环
@@ -860,7 +866,7 @@ class Config:
             earrring_dict5 = {"extra_all_job_all_active_skill_lv_1_30" : 1}
             entries.append(earrring_dict5)
         if self.ui.earrringBadge.text() != "":
-            earrring_dict6 = {"extra_all_element_strength" : int(self.ui.earrringBadge.text())}
+            earrring_dict6 = {attributes : int(self.ui.earrringBadge.text())}
             entries.append(earrring_dict6)
 
         # 装扮
@@ -889,7 +895,7 @@ class Config:
             dress_dict5 = {"extra_all_job_all_active_skill_lv_1_30" : 1}
             entries.append(dress_dict5)
         if self.ui.dressBadge.text() != "":
-            dress_dict6 = {"extra_all_element_strength" : int(self.ui.dressBadge.text())}
+            dress_dict6 = {attributes : int(self.ui.dressBadge.text())}
             entries.append(dress_dict6)
 
         ## 称号
@@ -1065,6 +1071,19 @@ class Config:
             new_config["entries"] = entries
             config.append(new_config)
             writeyaml("../setting/account_other_bonus_attributes.yaml",config)
+            names = find_names(configItems)
+            self.ui.nameBox.clear()
+            self.ui.nameBox.addItems(names)
+            self.ui.nameBox.setCurrentIndex(len(names)-1)
+
+        # 通知用户保存完成
+        msgBox = QMessageBox()
+        msgBox.setWindowTitle('通知')
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText('保存成功')
+        ok = msgBox.addButton(QMessageBox.Ok)
+        msgBox.setDefaultButton(ok)
+        msgBox.exec()
 
     def save_button(self):
         self.save_config(configItems)
