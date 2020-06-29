@@ -6,24 +6,17 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1435</width>
-    <height>434</height>
+    <width>1596</width>
+    <height>429</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>属性编辑器</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
+  <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QGridLayout" name="gridLayout_4">
-     <item row="0" column="0">
-      <widget class="QLabel" name="name">
-       <property name="text">
-        <string>存档名</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="6">
+     <item row="0" column="7">
       <widget class="QComboBox" name="attackBox">
        <item>
         <property name="text">
@@ -47,7 +40,7 @@
        </item>
       </widget>
      </item>
-     <item row="0" column="9">
+     <item row="0" column="10">
       <spacer name="horizontalSpacer_15">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -60,14 +53,21 @@
        </property>
       </spacer>
      </item>
-     <item row="0" column="5">
+     <item row="0" column="6">
       <widget class="QLabel" name="label_19">
        <property name="text">
         <string>主攻击力</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="2">
+     <item row="0" column="0">
+      <widget class="QLabel" name="name">
+       <property name="text">
+        <string>存档名</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
       <widget class="QPushButton" name="minusButton">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -76,7 +76,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>删除此配置</string>
+        <string>-</string>
        </property>
       </widget>
      </item>
@@ -99,14 +99,14 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="7">
+     <item row="0" column="8">
       <widget class="QLabel" name="label_70">
        <property name="text">
         <string>神话部位</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="4">
+     <item row="0" column="5">
       <widget class="QComboBox" name="attributesBox">
        <item>
         <property name="text">
@@ -130,14 +130,14 @@
        </item>
       </widget>
      </item>
-     <item row="0" column="3">
+     <item row="0" column="4">
       <widget class="QLabel" name="label_14">
        <property name="text">
         <string>主属性</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="8">
+     <item row="0" column="9">
       <widget class="QComboBox" name="mythBox">
        <item>
         <property name="text">
@@ -161,6 +161,19 @@
        </item>
       </widget>
      </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="addButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
    <item>
@@ -177,483 +190,453 @@
     </spacer>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0" colspan="11">
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QLabel" name="label_7">
-           <property name="text">
-            <string>武器</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="weaponType">
-           <item>
-            <property name="text">
-             <string>增幅</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>强化</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="weaponBox">
-           <item>
-            <property name="text">
-             <string>0</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>1</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>2</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>3</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>4</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>5</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>6</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>7</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>8</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>9</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>10</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>11</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>12</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>13</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>14</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>15</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>16</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>17</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>18</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>19</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>20</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_18">
-           <property name="text">
-            <string>附魔</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="weaponAttributes">
-           <property name="minimumSize">
-            <size>
-             <width>50</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>50</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="placeholderText">
-            <string>主属性</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="weaponAttack">
-           <property name="minimumSize">
-            <size>
-             <width>50</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>50</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="placeholderText">
-            <string>攻击力</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="weaponEnh">
-           <property name="minimumSize">
-            <size>
-             <width>50</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>50</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="placeholderText">
-            <string>属强</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_16">
-           <property name="text">
-            <string>锻造</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="weaponForge">
-           <item>
-            <property name="text">
-             <string>0</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>1</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>2</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>3</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>4</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>5</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>6</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>7</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>8</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="type">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <item>
-            <property name="text">
-             <string>左轮枪</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>手炮</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>步枪</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>手弩</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>自动手枪</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>短剑</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>光剑</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>巨剑</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>太刀</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>钝器</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>法杖</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>魔杖</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>棍棒</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>矛</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>扫把</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>手套</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>臂铠</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>爪</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>拳套</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>东方棍</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>十字架</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>念珠</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>图腾</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>镰刀</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>战斧</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>匕首</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>双剑</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>权杖</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>苦无</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>战戟</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>长枪</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>光枪</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>暗矛</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>长刀</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>小太刀</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>重剑</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>源力剑</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_17">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </item>
-       <item row="0" column="11">
-        <spacer name="horizontalSpacer_16">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>武器</string>
          </property>
-         <property name="sizeHint" stdset="0">
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="weaponType">
+         <item>
+          <property name="text">
+           <string>增幅</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>强化</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QComboBox" name="weaponBox">
+         <item>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>3</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>4</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>5</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>6</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>7</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>8</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>9</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>10</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>11</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>12</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>13</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>14</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>15</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>16</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>17</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>18</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>19</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>20</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QLabel" name="label_18">
+         <property name="text">
+          <string>附魔</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="QLineEdit" name="weaponAttributes">
+         <property name="minimumSize">
           <size>
-           <width>40</width>
-           <height>20</height>
+           <width>50</width>
+           <height>0</height>
           </size>
          </property>
-        </spacer>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="placeholderText">
+          <string>主属性</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="5">
+        <widget class="QLineEdit" name="weaponAttack">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="placeholderText">
+          <string>攻击力</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="6">
+        <widget class="QLineEdit" name="weaponEnh">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="placeholderText">
+          <string>属强</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="7">
+        <widget class="QLabel" name="label_16">
+         <property name="text">
+          <string>锻造</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="8">
+        <widget class="QComboBox" name="weaponForge">
+         <item>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>3</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>4</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>5</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>6</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>7</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>8</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="0" column="9" colspan="2">
+        <widget class="QComboBox" name="type">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <item>
+          <property name="text">
+           <string>左轮枪</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>手炮</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>步枪</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>手弩</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>自动手枪</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>短剑</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>光剑</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>巨剑</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>太刀</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>钝器</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>法杖</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>魔杖</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>棍棒</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>矛</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>扫把</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>手套</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>臂铠</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>爪</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>拳套</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>东方棍</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>十字架</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>念珠</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>图腾</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>镰刀</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>战斧</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>匕首</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>双剑</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>权杖</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>苦无</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>战戟</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>长枪</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>光枪</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>暗矛</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>长刀</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>小太刀</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>重剑</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>源力剑</string>
+          </property>
+         </item>
+        </widget>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label">
@@ -856,7 +839,7 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="8">
+       <item row="1" column="8" colspan="2">
         <widget class="QComboBox" name="coatSkill">
          <item>
           <property name="text">
@@ -865,14 +848,14 @@
          </item>
         </widget>
        </item>
-       <item row="1" column="9">
+       <item row="1" column="10">
         <widget class="QLabel" name="label_31">
          <property name="text">
           <string>徽章</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="10" colspan="2">
+       <item row="1" column="11">
         <widget class="QLineEdit" name="coatBadge">
          <property name="minimumSize">
           <size>
@@ -888,6 +871,25 @@
          </property>
          <property name="placeholderText">
           <string>主属性</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="12">
+        <widget class="QLineEdit" name="coatBadgeAttack">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="placeholderText">
+          <string>攻击力</string>
          </property>
         </widget>
        </item>
@@ -1092,7 +1094,7 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="8">
+       <item row="2" column="8" colspan="2">
         <widget class="QComboBox" name="neckSkill">
          <item>
           <property name="text">
@@ -1111,14 +1113,14 @@
          </item>
         </widget>
        </item>
-       <item row="2" column="9">
+       <item row="2" column="10">
         <widget class="QLabel" name="label_33">
          <property name="text">
           <string>徽章</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="10" colspan="2">
+       <item row="2" column="11">
         <widget class="QLineEdit" name="neckBadge">
          <property name="minimumSize">
           <size>
@@ -1134,6 +1136,25 @@
          </property>
          <property name="placeholderText">
           <string>主属性</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="12">
+        <widget class="QLineEdit" name="neckBadgeAttack">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="placeholderText">
+          <string>攻击力</string>
          </property>
         </widget>
        </item>
@@ -1338,7 +1359,7 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="8">
+       <item row="3" column="8" colspan="2">
         <widget class="QComboBox" name="pantsSkill">
          <item>
           <property name="text">
@@ -1347,14 +1368,14 @@
          </item>
         </widget>
        </item>
-       <item row="3" column="9">
+       <item row="3" column="10">
         <widget class="QLabel" name="label_32">
          <property name="text">
           <string>徽章</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="10" colspan="2">
+       <item row="3" column="11">
         <widget class="QLineEdit" name="pantsBadge">
          <property name="minimumSize">
           <size>
@@ -1370,6 +1391,25 @@
          </property>
          <property name="placeholderText">
           <string>主属性</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="12">
+        <widget class="QLineEdit" name="pantsBadgeAttack">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="placeholderText">
+          <string>攻击力</string>
          </property>
         </widget>
        </item>
@@ -1574,7 +1614,7 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="8">
+       <item row="4" column="8" colspan="2">
         <widget class="QComboBox" name="shoesSkill">
          <item>
           <property name="text">
@@ -1593,14 +1633,14 @@
          </item>
         </widget>
        </item>
-       <item row="4" column="9">
+       <item row="4" column="10">
         <widget class="QLabel" name="label_34">
          <property name="text">
           <string>徽章</string>
          </property>
         </widget>
        </item>
-       <item row="4" column="10" colspan="2">
+       <item row="4" column="11">
         <widget class="QLineEdit" name="shoesBadge">
          <property name="minimumSize">
           <size>
@@ -1616,6 +1656,25 @@
          </property>
          <property name="placeholderText">
           <string>主属性</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="12">
+        <widget class="QLineEdit" name="shoesBadgeAttack">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="placeholderText">
+          <string>攻击力</string>
          </property>
         </widget>
        </item>
@@ -1820,7 +1879,7 @@
          </property>
         </widget>
        </item>
-       <item row="5" column="8">
+       <item row="5" column="8" colspan="2">
         <widget class="QComboBox" name="beltSkill">
          <item>
           <property name="text">
@@ -1839,14 +1898,14 @@
          </item>
         </widget>
        </item>
-       <item row="5" column="9">
+       <item row="5" column="10">
         <widget class="QLabel" name="label_35">
          <property name="text">
           <string>徽章</string>
          </property>
         </widget>
        </item>
-       <item row="5" column="10" colspan="2">
+       <item row="5" column="11">
         <widget class="QLineEdit" name="beltBadge">
          <property name="minimumSize">
           <size>
@@ -1865,10 +1924,93 @@
          </property>
         </widget>
        </item>
+       <item row="5" column="12">
+        <widget class="QLineEdit" name="beltBadgeAttack">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="placeholderText">
+          <string>攻击力</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="12">
+        <spacer name="horizontalSpacer_13">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Minimum</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
       </layout>
      </item>
      <item>
+      <spacer name="horizontalSpacer_16">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Maximum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>10</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Preferred</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>10</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
       <layout class="QGridLayout" name="gridLayout_2">
+       <item row="5" column="9">
+        <widget class="QComboBox" name="earrringSkill">
+         <item>
+          <property name="text">
+           <string>无</string>
+          </property>
+         </item>
+        </widget>
+       </item>
        <item row="4" column="1">
         <widget class="QComboBox" name="magicstoneType">
          <item>
@@ -3306,13 +3448,118 @@
          </item>
         </widget>
        </item>
-       <item row="5" column="9">
-        <widget class="QComboBox" name="earrringSkill">
-         <item>
-          <property name="text">
-           <string>无</string>
-          </property>
-         </item>
+       <item row="0" column="12">
+        <widget class="QLineEdit" name="necklaceBadgeAttack">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="placeholderText">
+          <string>攻击力</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="12">
+        <widget class="QLineEdit" name="braceletBadgeAttack">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="placeholderText">
+          <string>攻击力</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="12">
+        <widget class="QLineEdit" name="ringBadgeAttack">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="placeholderText">
+          <string>攻击力</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="12">
+        <widget class="QLineEdit" name="supportBadgeAttack">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="placeholderText">
+          <string>攻击力</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="12">
+        <widget class="QLineEdit" name="magicstoneBadgeAttack">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="placeholderText">
+          <string>攻击力</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="12">
+        <widget class="QLineEdit" name="earrringBadgeAttack">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="placeholderText">
+          <string>攻击力</string>
+         </property>
         </widget>
        </item>
       </layout>
