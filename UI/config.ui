@@ -2297,7 +2297,7 @@
        <item row="3" column="0">
         <widget class="QLabel" name="label_10">
          <property name="text">
-          <string>特殊装备</string>
+          <string>辅助装备</string>
          </property>
         </widget>
        </item>
