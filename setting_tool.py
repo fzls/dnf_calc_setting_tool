@@ -56,19 +56,77 @@ class Config:
         self.ui.addButton.clicked.connect(self.add_button)
         self.ui.minusButton.clicked.connect(self.minus_button)
         self.ui.nameBox.currentIndexChanged.connect(self.change_config)
+        self.ui.categoryBox.currentIndexChanged.connect(self.change_category)
+        self.ui.funcBox.currentIndexChanged.connect(self.change_func)
+        self.ui.lvBox.currentIndexChanged.connect(self.change_lv)
 
         # 打开自动加载配置
-        readyaml()
         names = find_names(configItems)
         if len(names) > 0:
             self.ui.nameBox.clear()
             self.ui.nameBox.addItems(names)
-            self.read_config(configItems,0)
 
     def change_config(self):
         if self.ui.nameBox.currentText() != "新存档":
             readyaml()
             self.read_config(configItems,self.ui.nameBox.currentIndex())
+
+    def change_func(self):
+        self.ui.weaponType.setCurrentIndex(self.ui.funcBox.currentIndex())
+        self.ui.coatType.setCurrentIndex(self.ui.funcBox.currentIndex())
+        self.ui.neckType.setCurrentIndex(self.ui.funcBox.currentIndex())
+        self.ui.pantsType.setCurrentIndex(self.ui.funcBox.currentIndex())
+        self.ui.shoesType.setCurrentIndex(self.ui.funcBox.currentIndex())
+        self.ui.beltType.setCurrentIndex(self.ui.funcBox.currentIndex())
+        self.ui.necklaceType.setCurrentIndex(self.ui.funcBox.currentIndex())
+        self.ui.braceletType.setCurrentIndex(self.ui.funcBox.currentIndex())
+        self.ui.ringType.setCurrentIndex(self.ui.funcBox.currentIndex())
+        self.ui.supportType.setCurrentIndex(self.ui.funcBox.currentIndex())
+        self.ui.magicstoneType.setCurrentIndex(self.ui.funcBox.currentIndex())
+        self.ui.earrringType.setCurrentIndex(self.ui.funcBox.currentIndex())
+
+    def change_lv(self):
+        self.ui.weaponBox.setCurrentIndex(self.ui.lvBox.currentIndex())
+        self.ui.coatBox.setCurrentIndex(self.ui.lvBox.currentIndex())
+        self.ui.neckBox.setCurrentIndex(self.ui.lvBox.currentIndex())
+        self.ui.pantsBox.setCurrentIndex(self.ui.lvBox.currentIndex())
+        self.ui.shoesBox.setCurrentIndex(self.ui.lvBox.currentIndex())
+        self.ui.beltBox.setCurrentIndex(self.ui.lvBox.currentIndex())
+        self.ui.necklaceBox.setCurrentIndex(self.ui.lvBox.currentIndex())
+        self.ui.braceletBox.setCurrentIndex(self.ui.lvBox.currentIndex())
+        self.ui.ringBox.setCurrentIndex(self.ui.lvBox.currentIndex())
+        self.ui.supportBox.setCurrentIndex(self.ui.lvBox.currentIndex())
+        self.ui.magicstoneBox.setCurrentIndex(self.ui.lvBox.currentIndex())
+        self.ui.earrringBox.setCurrentIndex(self.ui.lvBox.currentIndex())
+
+    def change_category(self):
+        if self.ui.categoryBox.currentText() == "鬼剑士/黑暗武士":
+            self.ui.type.clear()
+            self.ui.type.addItems(["短剑","光剑","巨剑","太刀","钝器"])
+        elif self.ui.categoryBox.currentText() == "神枪手":
+            self.ui.type.clear()
+            self.ui.type.addItems(["左轮枪","手炮","步枪","手弩","自动手枪"])
+        elif self.ui.categoryBox.currentText() == "魔法师/缔造者":
+            self.ui.type.clear()
+            self.ui.type.addItems(["法杖","魔杖","棍棒","矛","扫把"])
+        elif self.ui.categoryBox.currentText() == "格斗家":
+            self.ui.type.clear()
+            self.ui.type.addItems(["手套","臂铠","爪","拳套","东方棍"])
+        elif self.ui.categoryBox.currentText() == "圣职者":
+            self.ui.type.clear()
+            self.ui.type.addItems(["十字架","念珠","图腾","镰刀","战斧"])
+        elif self.ui.categoryBox.currentText() == "魔枪士":
+            self.ui.type.clear()
+            self.ui.type.addItems(["战戟","长枪","光枪","暗矛"])
+        elif self.ui.categoryBox.currentText() == "枪剑士":
+            self.ui.type.clear()
+            self.ui.type.addItems(["长刀","小太刀","重剑","源力剑"])
+        elif self.ui.categoryBox.currentText() == "守护者":
+            self.ui.type.clear()
+            self.ui.type.addItems(["短剑","巨剑","太刀","钝器"])
+        elif self.ui.categoryBox.currentText() == "暗夜使者":
+            self.ui.type.clear()
+            self.ui.type.addItems(["匕首","双剑","权杖","苦无"])
 
     def read_config(self,config,index):
         if "gui_config" in config[index]:
@@ -386,6 +444,13 @@ class Config:
                     self.ui.crit.setText(gui_config[x])
                     x += 1
                     self.ui.skill.setText(gui_config[x])
+                    # 职业、训练官攻击力、装扮徽章攻击力，因考虑兼容问题单独写
+                    x += 1
+                    self.ui.categoryBox.setCurrentIndex(gui_config[x])
+                    x += 1
+                    self.ui.dressBadgeAttack.setText(gui_config[x])
+                    x += 1
+                    self.ui.trainerAttack.setText(gui_config[x])
                     break
 
     def save_config(self,config):
@@ -567,6 +632,10 @@ class Config:
         gui_config.append(self.ui.crit.text())
         gui_config.append(self.ui.skill.text())
 
+        # 职业、训练官攻击力、装扮徽章攻击力，因考虑兼容问题单独写
+        gui_config.append(self.ui.categoryBox.currentIndex())
+        gui_config.append(self.ui.dressBadgeAttack.text())
+        gui_config.append(self.ui.trainerAttack.text())
 
         # 主属性词条
         entries = []
@@ -968,6 +1037,9 @@ class Config:
         if self.ui.dressBadge.text() != "":
             dress_dict6 = {attributes : int(self.ui.dressBadge.text())}
             entries.append(dress_dict6)
+        if self.ui.dressBadgeAttack.text() != "":
+            dress_dict7 = {attack : int(self.ui.dressBadgeAttack.text())}
+            entries.append(dress_dict7)
 
         ## 称号
         if self.ui.titleAttributes.text() != "":
@@ -999,20 +1071,28 @@ class Config:
             title_dict6 = {"extra_all_job_all_skill_lv_25_30_in_buff_dress_up" : 1}
             entries.append(title_dict6)
         elif self.ui.titleBox.currentIndex() == 2:
-            title_dict6 = {"extra_all_job_all_skill_lv_25_30_in_buff_dress_up" : 2}
+            title_dict6 = {"extra_all_job_all_skill_lv_25_30_in_buff_dress_up" : 1}
+            title_dict7 = {"extra_bless_skill" : 1}
             entries.append(title_dict6)
+            entries.append(title_dict7)
         elif self.ui.titleBox.currentIndex() == 3:
-            title_dict6 = {"extra_all_job_all_skill_lv_25_30_in_buff_dress_up" : 3}
-            entries.append(title_dict6)        
+            title_dict6 = {"extra_all_job_all_skill_lv_25_30_in_buff_dress_up" : 1}
+            title_dict7 = {"extra_bless_skill" : 2}
+            entries.append(title_dict6)
+            entries.append(title_dict7)  
         elif self.ui.titleBox.currentIndex() == 4:
             title_dict6 = {"extra_all_job_all_skill_lv_30_35_in_buff_dress_up" : 1}
             entries.append(title_dict6)
         elif self.ui.titleBox.currentIndex() == 5:
-            title_dict6 = {"extra_all_job_all_skill_lv_30_35_in_buff_dress_up" : 2}
+            title_dict6 = {"extra_all_job_all_skill_lv_30_35_in_buff_dress_up" : 1}
+            title_dict7 = {"extra_bless_skill" : 1}
             entries.append(title_dict6)
+            entries.append(title_dict7)
         elif self.ui.titleBox.currentIndex() == 6:
-            title_dict6 = {"extra_all_job_all_skill_lv_30_35_in_buff_dress_up" : 3}
+            title_dict6 = {"extra_all_job_all_skill_lv_30_35_in_buff_dress_up" : 1}
+            title_dict7 = {"extra_bless_skill" : 2}
             entries.append(title_dict6)
+            entries.append(title_dict7)
 
         ## 其他
         if self.ui.groupAttributes.text() != "":
@@ -1026,6 +1106,9 @@ class Config:
         if self.ui.trainerAttributes.text() != "":
             trainer_dict = {attributes : int(self.ui.trainerAttributes.text())}
             entries.append(trainer_dict)
+        if self.ui.trainerAttack.text() != "":
+            trainer_dict1 = {attack : int(self.ui.trainerAttack.text())}
+            entries.append(trainer_dict1)
 
         # 婚房婚戒
         if self.ui.marriageAttributes.text() != "":
@@ -1151,7 +1234,7 @@ class Config:
         msgBox = QMessageBox()
         msgBox.setWindowTitle('通知')
         msgBox.setIcon(QMessageBox.Information)
-        msgBox.setText('保存成功')
+        msgBox.setText('保存成功，在主程序中点击重载配置后存档生效。')
         ok = msgBox.addButton(QMessageBox.Ok)
         msgBox.setDefaultButton(ok)
         msgBox.exec()
@@ -1161,7 +1244,7 @@ class Config:
 
     def find_index(self,config):
                     for i in range(len(config)):
-                        if self.ui.nameBox.currentText() in config[i]["names"]:
+                        if self.ui.nameBox.currentText() == config[i]["names"][0]:
                             index = i
                     return(index)
 
@@ -1179,31 +1262,24 @@ class Config:
             msgBox.exec()
 
     def minus_button(self):
-        if self.ui.nameBox.count() > 0:
-            # reply = QMessageBox.warning(self,'警告','这是一个警告消息对话框', QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel, QMessageBox.Save)
-            msgBox = QMessageBox()
-            msgBox.setWindowTitle('警告')
-            msgBox.setIcon(QMessageBox.Warning)
-            msgBox.setText('删除后无法恢复！')
-            msgBox.setInformativeText('确认删除?')
-            Save = msgBox.addButton('删除', QMessageBox.AcceptRole)
-            Cancel = msgBox.addButton('取消', QMessageBox.DestructiveRole)
-            msgBox.setDefaultButton(Cancel)
-            reply = msgBox.exec()
-            if reply == QMessageBox.AcceptRole:
-                names = find_names(readyaml())
-                if len(names) != 0:
-                    num = self.find_index(configItems)
-                    del configItems[num]
-                    names = find_names(configItems)
-                    self.ui.minusButton.setEnabled(True)
-                    self.ui.nameBox.clear()
-                    self.ui.nameBox.addItems(names)
-
-        else:
-            self.ui.minusButton.setEnabled(False)
-        
-        writeyaml("../setting/account_other_bonus_attributes.yaml",configItems)
+        # reply = QMessageBox.warning(self,'警告','这是一个警告消息对话框', QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel, QMessageBox.Save)
+        msgBox = QMessageBox()
+        msgBox.setWindowTitle('警告')
+        msgBox.setIcon(QMessageBox.Warning)
+        msgBox.setText('删除后无法恢复！')
+        msgBox.setInformativeText('确认删除?')
+        Save = msgBox.addButton('删除', QMessageBox.AcceptRole)
+        Cancel = msgBox.addButton('取消', QMessageBox.DestructiveRole)
+        msgBox.setDefaultButton(Cancel)
+        reply = msgBox.exec()
+        if reply == QMessageBox.AcceptRole:
+            if self.ui.nameBox.currentText() in find_names(readyaml()):
+                num = self.find_index(readyaml())
+                del configItems[num]
+                self.ui.nameBox.removeItem(self.ui.nameBox.currentIndex())
+                writeyaml("../setting/account_other_bonus_attributes.yaml",configItems)
+            else:
+                self.ui.nameBox.removeItem(self.ui.nameBox.currentIndex())
        
 if __name__ == "__main__":
     app = QApplication([])
