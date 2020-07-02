@@ -18,6 +18,9 @@
     <layout class="QHBoxLayout" name="horizontalLayout_8">
      <item>
       <widget class="QLabel" name="name">
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;存档名需与主程序存档名一致！&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
        <property name="text">
         <string>存档名</string>
        </property>
@@ -30,6 +33,12 @@
       <widget class="QComboBox" name="nameBox">
        <property name="contextMenuPolicy">
         <enum>Qt::DefaultContextMenu</enum>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;存档名需与主程序存档名一致！&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="whatsThis">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="autoFillBackground">
         <bool>false</bool>
@@ -297,6 +306,13 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="contractCheck">
+     <property name="text">
+      <string>无色晶体契约</string>
+     </property>
+    </widget>
    </item>
    <item>
     <spacer name="verticalSpacer_4">
@@ -3812,12 +3828,12 @@
        </item>
        <item>
         <property name="text">
-         <string>Lv1-50(主动) +1</string>
+         <string>Lv1-50(全部) +1</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Lv1-30(主动) +1</string>
+         <string>Lv1-30(全部) +1</string>
         </property>
        </item>
       </widget>

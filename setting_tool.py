@@ -451,6 +451,10 @@ class Config:
                     self.ui.dressBadgeAttack.setText(gui_config[x])
                     x += 1
                     self.ui.trainerAttack.setText(gui_config[x])
+
+                    # 晶体契约
+                    x += 1
+                    self.ui.contractCheck.setChecked(gui_config[x])
                     break
 
     def save_config(self,config):
@@ -636,6 +640,9 @@ class Config:
         gui_config.append(self.ui.categoryBox.currentIndex())
         gui_config.append(self.ui.dressBadgeAttack.text())
         gui_config.append(self.ui.trainerAttack.text())
+
+        # 晶体契约
+        gui_config.append(int(self.ui.contractCheck.isChecked()))
 
         # 主属性词条
         entries = []
@@ -1029,7 +1036,7 @@ class Config:
             dress_dict = {"extra_taiyang_skill" : 1}
             entries.append(dress_dict)
         if self.ui.dressSkill2.currentIndex() == 1:
-            dress_dict5 = {"extra_all_job_all_active_skill_lv_1_50" : 1}
+            dress_dict5 = {"extra_all_job_all_skill_lv_1_50" : 1}
             entries.append(dress_dict5)
         elif self.ui.dressSkill2.currentIndex() == 2:
             dress_dict5 = {"extra_all_job_all_active_skill_lv_1_30" : 1}
@@ -1203,6 +1210,11 @@ class Config:
         if self.ui.skill.text() != "":
             per_dict5 = {"other_rate_like_extra_percent_skill_attack_power" : int(self.ui.skill.text())}
             entries.append(per_dict5)
+
+        # 晶体契约
+        if self.ui.contractCheck.isChecked():
+            contract_dict = {attack : 40}
+            entries.append(contract_dict)
 
         hasnames = 0
         for i in range(len(config)):
