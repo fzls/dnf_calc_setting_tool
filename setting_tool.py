@@ -56,6 +56,8 @@ class Config:
         self.ui.addButton.clicked.connect(self.add_button)
         self.ui.minusButton.clicked.connect(self.minus_button)
         self.ui.nameBox.currentIndexChanged.connect(self.change_config)
+        self.ui.attributesBox.currentIndexChanged.connect(self.change_attributes)
+        self.ui.attackBox.currentIndexChanged.connect(self.change_attack)
         self.ui.categoryBox.currentIndexChanged.connect(self.change_category)
         self.ui.funcBox.currentIndexChanged.connect(self.change_func)
         self.ui.lvBox.currentIndexChanged.connect(self.change_lv)
@@ -65,11 +67,108 @@ class Config:
         if len(names) > 0:
             self.ui.nameBox.clear()
             self.ui.nameBox.addItems(names)
+            self.read_config(readyaml(),self.ui.nameBox.currentIndex())
 
-    def change_config(self):
-        if self.ui.nameBox.currentText() != "新存档":
-            readyaml()
-            self.read_config(configItems,self.ui.nameBox.currentIndex())
+    def change_config(self): 
+        try:
+            if self.ui.nameBox.currentText() in readyaml()[self.ui.nameBox.currentIndex()]["names"]:
+                self.read_config(readyaml(),self.ui.nameBox.currentIndex())
+        except IndexError:
+            self.clear_config()
+
+    def change_attributes(self):
+        if self.ui.attributesBox.currentIndex() == 0:
+            attributes = "力量"
+        elif self.ui.attributesBox.currentIndex() == 1:
+            attributes = "智力"
+        elif self.ui.attributesBox.currentIndex() == 2:
+            attributes = "体力"
+        elif self.ui.attributesBox.currentIndex() == 3:
+            attributes = "精神"
+
+        self.ui.weaponAttributes.setPlaceholderText(attributes)
+        self.ui.coatAttributes.setPlaceholderText(attributes)
+        self.ui.coatBadge.setPlaceholderText(attributes)
+        self.ui.neckAttributes.setPlaceholderText(attributes)
+        self.ui.neckBadge.setPlaceholderText(attributes)
+        self.ui.pantsAttributes.setPlaceholderText(attributes)
+        self.ui.pantsBadge.setPlaceholderText(attributes)
+        self.ui.shoesAttributes.setPlaceholderText(attributes)
+        self.ui.shoesBadge.setPlaceholderText(attributes)
+        self.ui.beltAttributes.setPlaceholderText(attributes)
+        self.ui.beltBadge.setPlaceholderText(attributes)
+        self.ui.necklaceAttributes.setPlaceholderText(attributes)
+        self.ui.necklaceBadge.setPlaceholderText(attributes)
+        self.ui.braceletAttributes.setPlaceholderText(attributes)
+        self.ui.braceletBadge.setPlaceholderText(attributes)
+        self.ui.ringAttributes.setPlaceholderText(attributes)
+        self.ui.ringBadge.setPlaceholderText(attributes)
+        self.ui.supportAttributes.setPlaceholderText(attributes)
+        self.ui.supportBadge.setPlaceholderText(attributes)
+        self.ui.magicstoneAttributes.setPlaceholderText(attributes)
+        self.ui.magicstoneBadge.setPlaceholderText(attributes)
+        self.ui.earrringAttributes.setPlaceholderText(attributes)
+        self.ui.earrringBadge.setPlaceholderText(attributes)
+
+        self.ui.dressAttributes.setPlaceholderText(attributes)
+        self.ui.dressBadge.setPlaceholderText(attributes)
+        self.ui.titleAttributes.setPlaceholderText(attributes)
+        self.ui.groupAttributes.setPlaceholderText(attributes)
+        self.ui.guildAttributes.setPlaceholderText(attributes)
+        self.ui.trainerAttributes.setPlaceholderText(attributes)
+        self.ui.marriageAttributes.setPlaceholderText(attributes)
+        self.ui.collectAttributes.setPlaceholderText(attributes)
+        self.ui.medalAttributes.setPlaceholderText(attributes)
+        self.ui.decorationAttributes.setPlaceholderText(attributes)
+        self.ui.grainAttributes.setPlaceholderText(attributes)
+        self.ui.petequipmentAttributes.setPlaceholderText(attributes)
+        self.ui.petAttributes.setPlaceholderText(attributes)
+
+    def change_attack(self):
+        if self.ui.attackBox.currentIndex() == 0:
+            attack = "无"
+        elif self.ui.attackBox.currentIndex() == 1:
+            attack = "物攻"
+        elif self.ui.attackBox.currentIndex() == 2:
+            attack = "魔攻"
+        elif self.ui.attackBox.currentIndex() == 3:
+            attack = "独立"
+        
+        self.ui.weaponAttack.setPlaceholderText(attack)
+        self.ui.coatAttack.setPlaceholderText(attack)
+        self.ui.coatBadgeAttack.setPlaceholderText(attack)
+        self.ui.neckAttack.setPlaceholderText(attack)
+        self.ui.neckBadgeAttack.setPlaceholderText(attack)
+        self.ui.pantsAttack.setPlaceholderText(attack)
+        self.ui.pantsBadgeAttack.setPlaceholderText(attack)
+        self.ui.shoesAttack.setPlaceholderText(attack)
+        self.ui.shoesBadgeAttack.setPlaceholderText(attack)
+        self.ui.beltAttack.setPlaceholderText(attack)
+        self.ui.beltBadgeAttack.setPlaceholderText(attack)
+        self.ui.necklaceAttack.setPlaceholderText(attack)
+        self.ui.necklaceBadgeAttack.setPlaceholderText(attack)
+        self.ui.braceletAttack.setPlaceholderText(attack)
+        self.ui.braceletBadgeAttack.setPlaceholderText(attack)
+        self.ui.ringAttack.setPlaceholderText(attack)
+        self.ui.ringBadgeAttack.setPlaceholderText(attack)
+        self.ui.supportAttack.setPlaceholderText(attack)
+        self.ui.supportBadgeAttack.setPlaceholderText(attack)
+        self.ui.magicstoneAttack.setPlaceholderText(attack)
+        self.ui.magicstoneBadgeAttack.setPlaceholderText(attack)
+        self.ui.earrringAttack.setPlaceholderText(attack)
+        self.ui.earrringBadgeAttack.setPlaceholderText(attack)
+
+        self.ui.dressAttack.setPlaceholderText(attack)
+        self.ui.dressBadgeAttack.setPlaceholderText(attack)
+        self.ui.titleAttack.setPlaceholderText(attack)
+        self.ui.trainerAttack.setPlaceholderText(attack)
+        self.ui.marriageAttack.setPlaceholderText(attack)
+        self.ui.collectAttack.setPlaceholderText(attack)
+        self.ui.medalAttack.setPlaceholderText(attack)
+        self.ui.viceAttack.setPlaceholderText(attack)
+        self.ui.grainAttack.setPlaceholderText(attack)
+        self.ui.petequipmentAttack.setPlaceholderText(attack)
+        self.ui.petAttack.setPlaceholderText(attack)
 
     def change_func(self):
         self.ui.weaponType.setCurrentIndex(self.ui.funcBox.currentIndex())
@@ -126,336 +225,479 @@ class Config:
             self.ui.type.addItems(["短剑","巨剑","太刀","钝器"])
         elif self.ui.categoryBox.currentText() == "暗夜使者":
             self.ui.type.clear()
-            self.ui.type.addItems(["匕首","双剑","权杖","苦无"])
+            self.ui.type.addItems(["匕首","双剑","手杖","苦无"])
 
     def read_config(self,config,index):
         if "gui_config" in config[index]:
             gui_config = config[index]["gui_config"]
-            if len(gui_config) < 138:
-                del config[index]["gui_config"]
-            else:
-                x = 0
-                while x < len(gui_config):
-                    # 杂项
-                    self.ui.attributesBox.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.attackBox.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.mythBox.setCurrentIndex(gui_config[x])
+            x = 0
+            while x < len(gui_config):
+                # 杂项
+                self.ui.attributesBox.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.attackBox.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.mythBox.setCurrentIndex(gui_config[x])
+                # 武器
+                x += 1
+                self.ui.weaponType.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.weaponBox.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.weaponAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.weaponAttack.setText(gui_config[x])
+                x += 1
+                self.ui.weaponEnh.setText(gui_config[x])
+                x += 1
+                self.ui.weaponForge.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.type.setCurrentIndex(gui_config[x])
+                # 上衣
+                x += 1
+                self.ui.coatType.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.coatBox.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.coatAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.coatAttack.setText(gui_config[x])
+                x += 1
+                self.ui.coatEnh.setText(gui_config[x])
+                x += 1
+                self.ui.coatSkill.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.coatBadge.setText(gui_config[x])
+                x += 1
+                self.ui.coatBadgeAttack.setText(gui_config[x])
+                # 护肩
+                x += 1
+                self.ui.neckType.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.neckBox.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.neckAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.neckAttack.setText(gui_config[x])
+                x += 1
+                self.ui.neckEnh.setText(gui_config[x])
+                x += 1
+                self.ui.neckSkill.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.neckBadge.setText(gui_config[x])
+                x += 1
+                self.ui.neckBadgeAttack.setText(gui_config[x])
+                # 下装
+                x += 1
+                self.ui.pantsType.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.pantsBox.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.pantsAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.pantsAttack.setText(gui_config[x])
+                x += 1
+                self.ui.pantsEnh.setText(gui_config[x])
+                x += 1
+                self.ui.pantsSkill.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.pantsBadge.setText(gui_config[x])
+                x += 1
+                self.ui.pantsBadgeAttack.setText(gui_config[x])
+                # 鞋
+                x += 1
+                self.ui.shoesType.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.shoesBox.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.shoesAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.shoesAttack.setText(gui_config[x])
+                x += 1
+                self.ui.shoesEnh.setText(gui_config[x])
+                x += 1
+                self.ui.shoesSkill.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.shoesBadge.setText(gui_config[x])
+                x += 1
+                self.ui.shoesBadgeAttack.setText(gui_config[x])
+                # 腰带
+                x += 1
+                self.ui.beltType.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.beltBox.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.beltAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.beltAttack.setText(gui_config[x])
+                x += 1
+                self.ui.beltEnh.setText(gui_config[x])
+                x += 1
+                self.ui.beltSkill.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.beltBadge.setText(gui_config[x])
+                x += 1
+                self.ui.beltBadgeAttack.setText(gui_config[x])
+                # 项链
+                x += 1
+                self.ui.necklaceType.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.necklaceBox.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.necklaceAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.necklaceAttack.setText(gui_config[x])
+                x += 1
+                self.ui.necklaceEnh.setText(gui_config[x])
+                x += 1
+                self.ui.necklaceSkill.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.necklaceBadge.setText(gui_config[x])
+                x += 1
+                self.ui.necklaceBadgeAttack.setText(gui_config[x])
+                # 手镯
+                x += 1
+                self.ui.braceletType.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.braceletBox.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.braceletAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.braceletAttack.setText(gui_config[x])
+                x += 1
+                self.ui.braceletEnh.setText(gui_config[x])
+                x += 1
+                self.ui.braceletSkill.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.braceletBadge.setText(gui_config[x])
+                x += 1
+                self.ui.braceletBadgeAttack.setText(gui_config[x])
+                # 戒指
+                x += 1
+                self.ui.ringType.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.ringBox.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.ringAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.ringAttack.setText(gui_config[x])
+                x += 1
+                self.ui.ringEnh.setText(gui_config[x])
+                x += 1
+                self.ui.ringSkill.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.ringBadge.setText(gui_config[x])
+                x += 1
+                self.ui.ringBadgeAttack.setText(gui_config[x])
+                # 辅助装备
+                x += 1
+                self.ui.supportType.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.supportBox.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.supportAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.supportAttack.setText(gui_config[x])
+                x += 1
+                self.ui.supportEnh.setText(gui_config[x])
+                x += 1
+                self.ui.supportSkill.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.supportBadge.setText(gui_config[x])
+                x += 1
+                self.ui.supportBadgeAttack.setText(gui_config[x])
+                # 魔法石
+                x += 1
+                self.ui.magicstoneType.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.magicstoneBox.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.magicstoneAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.magicstoneAttack.setText(gui_config[x])
+                x += 1
+                self.ui.magicstoneEnh.setText(gui_config[x])
+                x += 1
+                self.ui.magicstoneSkill.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.magicstoneBadge.setText(gui_config[x])
+                x += 1
+                self.ui.magicstoneBadgeAttack.setText(gui_config[x])
+                # 耳环
+                x += 1
+                self.ui.earrringType.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.earrringBox.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.earrringAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.earrringAttack.setText(gui_config[x])
+                x += 1
+                self.ui.earrringEnh.setText(gui_config[x])
+                x += 1
+                self.ui.earrringSkill.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.earrringBadge.setText(gui_config[x])
+                x += 1
+                self.ui.earrringBadgeAttack.setText(gui_config[x])
+                # 装扮
+                x += 1
+                self.ui.dressAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.dressAttack.setText(gui_config[x])
+                x += 1
+                self.ui.dressEnh.setText(gui_config[x])
+                x += 1
+                self.ui.dressSkill1.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.dressSkill2.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.dressBadge.setText(gui_config[x])
+                # 称号
+                x += 1
+                self.ui.titleAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.titleAttack.setText(gui_config[x])
+                x += 1
+                self.ui.titleEnh.setText(gui_config[x])
+                x += 1
+                self.ui.titleSkill.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.titleBox.setCurrentIndex(gui_config[x])
+                # 其他
+                x += 1
+                self.ui.groupAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.guildAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.trainerAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.marriageAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.marriageAttack.setText(gui_config[x])
+                x += 1
+                self.ui.marriageEnh.setText(gui_config[x])
+                x += 1
+                self.ui.collectAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.collectAttack.setText(gui_config[x])
+                x += 1
+                self.ui.collectEnh.setText(gui_config[x])
+                x += 1
+                self.ui.medalAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.medalAttack.setText(gui_config[x])
+                x += 1
+                self.ui.medalEnh.setText(gui_config[x])
+                x += 1
+                self.ui.decorationAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.viceAttack.setText(gui_config[x])
+                # 最后一行
+                x += 1
+                self.ui.grainAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.grainAttack.setText(gui_config[x])
+                x += 1
+                self.ui.grainEnh.setText(gui_config[x])
+                x += 1
+                self.ui.petequipmentAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.petequipmentAttack.setText(gui_config[x])
+                x += 1
+                self.ui.petequipmentEnh.setText(gui_config[x])
+                x += 1
+                self.ui.petAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.petAttack.setText(gui_config[x])
+                x += 1
+                self.ui.petEnh.setText(gui_config[x])
+                x += 1
+                self.ui.petSkill.setText(gui_config[x])
+                x += 1
+                self.ui.perAttributes.setText(gui_config[x])
+                x += 1
+                self.ui.addtional.setText(gui_config[x])
+                x += 1
+                self.ui.finall.setText(gui_config[x])
+                x += 1
+                self.ui.crit.setText(gui_config[x])
+                x += 1
+                self.ui.skill.setText(gui_config[x])
+                # 职业、训练官攻击力、装扮徽章攻击力，因考虑兼容问题单独写
+                x += 1
+                self.ui.categoryBox.setCurrentIndex(gui_config[x])
+                x += 1
+                self.ui.dressBadgeAttack.setText(gui_config[x])
+                x += 1
+                self.ui.trainerAttack.setText(gui_config[x])
+                # 晶体契约
+                x += 1
+                self.ui.contractCheck.setChecked(gui_config[x])
+                break
 
-                    # 武器
-                    x += 1
-                    self.ui.weaponType.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.weaponBox.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.weaponAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.weaponAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.weaponEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.weaponForge.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.type.setCurrentIndex(gui_config[x])
-
-                    # 上衣
-                    x += 1
-                    self.ui.coatType.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.coatBox.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.coatAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.coatAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.coatEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.coatSkill.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.coatBadge.setText(gui_config[x])
-                    x += 1
-                    self.ui.coatBadgeAttack.setText(gui_config[x])
-
-                    # 护肩
-                    x += 1
-                    self.ui.neckType.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.neckBox.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.neckAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.neckAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.neckEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.neckSkill.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.neckBadge.setText(gui_config[x])
-                    x += 1
-                    self.ui.neckBadgeAttack.setText(gui_config[x])
-
-                    # 下装
-                    x += 1
-                    self.ui.pantsType.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.pantsBox.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.pantsAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.pantsAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.pantsEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.pantsSkill.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.pantsBadge.setText(gui_config[x])
-                    x += 1
-                    self.ui.pantsBadgeAttack.setText(gui_config[x])
-
-                    # 鞋
-                    x += 1
-                    self.ui.shoesType.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.shoesBox.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.shoesAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.shoesAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.shoesEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.shoesSkill.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.shoesBadge.setText(gui_config[x])
-                    x += 1
-                    self.ui.shoesBadgeAttack.setText(gui_config[x])
-
-                    # 腰带
-                    x += 1
-                    self.ui.beltType.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.beltBox.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.beltAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.beltAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.beltEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.beltSkill.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.beltBadge.setText(gui_config[x])
-                    x += 1
-                    self.ui.beltBadgeAttack.setText(gui_config[x])
-
-                    # 项链
-                    x += 1
-                    self.ui.necklaceType.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.necklaceBox.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.necklaceAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.necklaceAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.necklaceEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.necklaceSkill.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.necklaceBadge.setText(gui_config[x])
-                    x += 1
-                    self.ui.necklaceBadgeAttack.setText(gui_config[x])
-
-                    # 手镯
-                    x += 1
-                    self.ui.braceletType.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.braceletBox.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.braceletAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.braceletAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.braceletEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.braceletSkill.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.braceletBadge.setText(gui_config[x])
-                    x += 1
-                    self.ui.braceletBadgeAttack.setText(gui_config[x])
-
-                    # 戒指
-                    x += 1
-                    self.ui.ringType.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.ringBox.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.ringAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.ringAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.ringEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.ringSkill.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.ringBadge.setText(gui_config[x])
-                    x += 1
-                    self.ui.ringBadgeAttack.setText(gui_config[x])
-
-                    # 辅助装备
-                    x += 1
-                    self.ui.supportType.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.supportBox.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.supportAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.supportAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.supportEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.supportSkill.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.supportBadge.setText(gui_config[x])
-                    x += 1
-                    self.ui.supportBadgeAttack.setText(gui_config[x])
-
-                    # 魔法石
-                    x += 1
-                    self.ui.magicstoneType.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.magicstoneBox.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.magicstoneAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.magicstoneAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.magicstoneEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.magicstoneSkill.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.magicstoneBadge.setText(gui_config[x])
-                    x += 1
-                    self.ui.magicstoneBadgeAttack.setText(gui_config[x])
-
-                    # 耳环
-                    x += 1
-                    self.ui.earrringType.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.earrringBox.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.earrringAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.earrringAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.earrringEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.earrringSkill.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.earrringBadge.setText(gui_config[x])
-                    x += 1
-                    self.ui.earrringBadgeAttack.setText(gui_config[x])
-
-                    # 装扮
-                    x += 1
-                    self.ui.dressAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.dressAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.dressEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.dressSkill1.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.dressSkill2.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.dressBadge.setText(gui_config[x])
-
-                    # 称号
-                    x += 1
-                    self.ui.titleAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.titleAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.titleEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.titleSkill.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.titleBox.setCurrentIndex(gui_config[x])
-
-                    # 其他
-                    x += 1
-                    self.ui.groupAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.guildAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.trainerAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.marriageAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.marriageAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.marriageEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.collectAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.collectAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.collectEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.medalAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.medalAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.medalEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.decorationAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.viceAttack.setText(gui_config[x])
-
-                    # 最后一行
-                    x += 1
-                    self.ui.grainAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.grainAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.grainEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.petequipmentAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.petequipmentAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.petequipmentEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.petAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.petAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.petEnh.setText(gui_config[x])
-                    x += 1
-                    self.ui.petSkill.setText(gui_config[x])
-                    x += 1
-                    self.ui.perAttributes.setText(gui_config[x])
-                    x += 1
-                    self.ui.addtional.setText(gui_config[x])
-                    x += 1
-                    self.ui.finall.setText(gui_config[x])
-                    x += 1
-                    self.ui.crit.setText(gui_config[x])
-                    x += 1
-                    self.ui.skill.setText(gui_config[x])
-                    # 职业、训练官攻击力、装扮徽章攻击力，因考虑兼容问题单独写
-                    x += 1
-                    self.ui.categoryBox.setCurrentIndex(gui_config[x])
-                    x += 1
-                    self.ui.dressBadgeAttack.setText(gui_config[x])
-                    x += 1
-                    self.ui.trainerAttack.setText(gui_config[x])
-
-                    # 晶体契约
-                    x += 1
-                    self.ui.contractCheck.setChecked(gui_config[x])
-                    break
+    def clear_config(self):
+        # 杂项
+        self.ui.attributesBox.setCurrentIndex(0)
+        self.ui.attackBox.setCurrentIndex(0)
+        self.ui.mythBox.setCurrentIndex(0)
+        # 武器
+        self.ui.weaponType.setCurrentIndex(0)
+        self.ui.weaponBox.setCurrentIndex(0)
+        self.ui.weaponAttributes.setText("")
+        self.ui.weaponAttack.setText("")
+        self.ui.weaponEnh.setText("")
+        self.ui.weaponForge.setCurrentIndex(0)
+        self.ui.type.setCurrentIndex(0)
+        # 上衣
+        self.ui.coatType.setCurrentIndex(0)
+        self.ui.coatBox.setCurrentIndex(0)
+        self.ui.coatAttributes.setText("")
+        self.ui.coatAttack.setText("")
+        self.ui.coatEnh.setText("")
+        self.ui.coatSkill.setCurrentIndex(0)
+        self.ui.coatBadge.setText("")
+        self.ui.coatBadgeAttack.setText("")
+        # 护肩
+        self.ui.neckType.setCurrentIndex(0)
+        self.ui.neckBox.setCurrentIndex(0)
+        self.ui.neckAttributes.setText("")
+        self.ui.neckAttack.setText("")
+        self.ui.neckEnh.setText("")
+        self.ui.neckSkill.setCurrentIndex(0)
+        self.ui.neckBadge.setText("")
+        self.ui.neckBadgeAttack.setText("")
+        # 下装
+        self.ui.pantsType.setCurrentIndex(0)
+        self.ui.pantsBox.setCurrentIndex(0)
+        self.ui.pantsAttributes.setText("")
+        self.ui.pantsAttack.setText("")
+        self.ui.pantsEnh.setText("")
+        self.ui.pantsSkill.setCurrentIndex(0)
+        self.ui.pantsBadge.setText("")
+        self.ui.pantsBadgeAttack.setText("")
+        # 鞋
+        self.ui.shoesType.setCurrentIndex(0)
+        self.ui.shoesBox.setCurrentIndex(0)
+        self.ui.shoesAttributes.setText("")
+        self.ui.shoesAttack.setText("")
+        self.ui.shoesEnh.setText("")
+        self.ui.shoesSkill.setCurrentIndex(0)
+        self.ui.shoesBadge.setText("")
+        self.ui.shoesBadgeAttack.setText("")
+        # 腰带
+        self.ui.beltType.setCurrentIndex(0)
+        self.ui.beltBox.setCurrentIndex(0)
+        self.ui.beltAttributes.setText("")
+        self.ui.beltAttack.setText("")
+        self.ui.beltEnh.setText("")
+        self.ui.beltSkill.setCurrentIndex(0)
+        self.ui.beltBadge.setText("")
+        self.ui.beltBadgeAttack.setText("")
+        # 项链
+        self.ui.necklaceType.setCurrentIndex(0)
+        self.ui.necklaceBox.setCurrentIndex(0)
+        self.ui.necklaceAttributes.setText("")
+        self.ui.necklaceAttack.setText("")
+        self.ui.necklaceEnh.setText("")
+        self.ui.necklaceSkill.setCurrentIndex(0)
+        self.ui.necklaceBadge.setText("")
+        self.ui.necklaceBadgeAttack.setText("")
+        # 手镯
+        self.ui.braceletType.setCurrentIndex(0)
+        self.ui.braceletBox.setCurrentIndex(0)
+        self.ui.braceletAttributes.setText("")
+        self.ui.braceletAttack.setText("")
+        self.ui.braceletEnh.setText("")
+        self.ui.braceletSkill.setCurrentIndex(0)
+        self.ui.braceletBadge.setText("")
+        self.ui.braceletBadgeAttack.setText("")
+        # 戒指
+        self.ui.ringType.setCurrentIndex(0)
+        self.ui.ringBox.setCurrentIndex(0)
+        self.ui.ringAttributes.setText("")
+        self.ui.ringAttack.setText("")
+        self.ui.ringEnh.setText("")
+        self.ui.ringSkill.setCurrentIndex(0)
+        self.ui.ringBadge.setText("")
+        self.ui.ringBadgeAttack.setText("")
+        # 辅助装备
+        self.ui.supportType.setCurrentIndex(0)
+        self.ui.supportBox.setCurrentIndex(0)
+        self.ui.supportAttributes.setText("")
+        self.ui.supportAttack.setText("")
+        self.ui.supportEnh.setText("")
+        self.ui.supportSkill.setCurrentIndex(0)
+        self.ui.supportBadge.setText("")
+        self.ui.supportBadgeAttack.setText("")
+        # 魔法石
+        self.ui.magicstoneType.setCurrentIndex(0)
+        self.ui.magicstoneBox.setCurrentIndex(0)
+        self.ui.magicstoneAttributes.setText("")
+        self.ui.magicstoneAttack.setText("")
+        self.ui.magicstoneEnh.setText("")
+        self.ui.magicstoneSkill.setCurrentIndex(0)
+        self.ui.magicstoneBadge.setText("")
+        self.ui.magicstoneBadgeAttack.setText("")
+        # 耳环
+        self.ui.earrringType.setCurrentIndex(0)
+        self.ui.earrringBox.setCurrentIndex(0)
+        self.ui.earrringAttributes.setText("")
+        self.ui.earrringAttack.setText("")
+        self.ui.earrringEnh.setText("")
+        self.ui.earrringSkill.setCurrentIndex(0)
+        self.ui.earrringBadge.setText("")
+        self.ui.earrringBadgeAttack.setText("")
+        # 装扮
+        self.ui.dressAttributes.setText("")
+        self.ui.dressAttack.setText("")
+        self.ui.dressEnh.setText("")
+        self.ui.dressSkill1.setCurrentIndex(0)
+        self.ui.dressSkill2.setCurrentIndex(0)
+        self.ui.dressBadge.setText("")
+        # 称号
+        self.ui.titleAttributes.setText("")
+        self.ui.titleAttack.setText("")
+        self.ui.titleEnh.setText("")
+        self.ui.titleSkill.setCurrentIndex(0)
+        self.ui.titleBox.setCurrentIndex(0)
+        # 其他
+        self.ui.groupAttributes.setText("")
+        self.ui.guildAttributes.setText("")
+        self.ui.trainerAttributes.setText("")
+        self.ui.marriageAttributes.setText("")
+        self.ui.marriageAttack.setText("")
+        self.ui.marriageEnh.setText("")
+        self.ui.collectAttributes.setText("")
+        self.ui.collectAttack.setText("")
+        self.ui.collectEnh.setText("")
+        self.ui.medalAttributes.setText("")
+        self.ui.medalAttack.setText("")
+        self.ui.medalEnh.setText("")
+        self.ui.decorationAttributes.setText("")
+        self.ui.viceAttack.setText("")
+        # 最后一行
+        self.ui.grainAttributes.setText("")
+        self.ui.grainAttack.setText("")
+        self.ui.grainEnh.setText("")
+        self.ui.petequipmentAttributes.setText("")
+        self.ui.petequipmentAttack.setText("")
+        self.ui.petequipmentEnh.setText("")
+        self.ui.petAttributes.setText("")
+        self.ui.petAttack.setText("")
+        self.ui.petEnh.setText("")
+        self.ui.petSkill.setText("")
+        self.ui.perAttributes.setText("")
+        self.ui.addtional.setText("")
+        self.ui.finall.setText("")
+        self.ui.crit.setText("")
+        self.ui.skill.setText("")
+        # 职业、训练官攻击力、装扮徽章攻击力，因考虑兼容问题单独写
+        self.ui.categoryBox.setCurrentIndex(0)
+        self.ui.dressBadgeAttack.setText("")
+        self.ui.trainerAttack.setText("")
+        # 晶体契约
+        self.ui.contractCheck.setChecked(False)
 
     def save_config(self,config):
         gui_dict = {}
@@ -1048,7 +1290,7 @@ class Config:
             dress_dict7 = {attack : int(self.ui.dressBadgeAttack.text())}
             entries.append(dress_dict7)
 
-        ## 称号
+        ## 称号附魔
         if self.ui.titleAttributes.text() != "":
             title_dict2 = {attributes : int(self.ui.titleAttributes.text())}
             entries.append(title_dict2)
@@ -1072,6 +1314,9 @@ class Config:
             entries.append(title_dict5)
         elif self.ui.titleSkill.currentIndex() == 5:
             title_dict5 = {"extra_all_job_all_skill_lv_30_35" : 1}
+            entries.append(title_dict5)
+        elif self.ui.titleSkill.currentIndex() == 6:
+            title_dict5 = {"extra_taiyang_skill" : 2}
             entries.append(title_dict5)
 
         if self.ui.titleBox.currentIndex() == 1:
