@@ -124,6 +124,8 @@ class Config:
         self.ui.petequipmentAttributes.setPlaceholderText(attributes)
         self.ui.petAttributes.setPlaceholderText(attributes)
 
+        self.ui.perAttributes.setPlaceholderText(attributes + "%")
+
     def change_attack(self):
         if self.ui.attackBox.currentIndex() == 0:
             attack = "无"
@@ -169,6 +171,8 @@ class Config:
         self.ui.grainAttack.setPlaceholderText(attack)
         self.ui.petequipmentAttack.setPlaceholderText(attack)
         self.ui.petAttack.setPlaceholderText(attack)
+
+        self.ui.petSkill.setPlaceholderText(attack + "%")
 
     def change_func(self):
         self.ui.weaponType.setCurrentIndex(self.ui.funcBox.currentIndex())

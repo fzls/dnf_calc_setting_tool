@@ -5023,7 +5023,7 @@
         </size>
        </property>
        <property name="placeholderText">
-        <string>+%攻击力</string>
+        <string>无</string>
        </property>
       </widget>
      </item>
@@ -5136,7 +5136,7 @@
         </size>
        </property>
        <property name="placeholderText">
-        <string>+%主属性</string>
+        <string>力量%</string>
        </property>
       </widget>
      </item>
@@ -5155,7 +5155,7 @@
         </size>
        </property>
        <property name="placeholderText">
-        <string>白字</string>
+        <string>白字%</string>
        </property>
       </widget>
      </item>
@@ -5174,7 +5174,7 @@
         </size>
        </property>
        <property name="placeholderText">
-        <string>终伤</string>
+        <string>终伤%</string>
        </property>
       </widget>
      </item>
@@ -5193,7 +5193,7 @@
         </size>
        </property>
        <property name="placeholderText">
-        <string>暴伤</string>
+        <string>暴伤%</string>
        </property>
       </widget>
      </item>
@@ -5212,7 +5212,7 @@
         </size>
        </property>
        <property name="placeholderText">
-        <string>技攻</string>
+        <string>技攻%</string>
        </property>
       </widget>
      </item>
