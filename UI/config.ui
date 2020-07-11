@@ -5253,6 +5253,9 @@
          <height>30</height>
         </size>
        </property>
+       <property name="toolTip">
+        <string>可由面板暗属性抗性减去装备加成的暗属性抗性计算。</string>
+       </property>
        <property name="placeholderText">
         <string>暗抗</string>
        </property>
@@ -5294,6 +5297,9 @@
          <width>50</width>
          <height>30</height>
         </size>
+       </property>
+       <property name="toolTip">
+        <string>可由面板移动速度减去装备加成的移动速度计算。</string>
        </property>
        <property name="placeholderText">
         <string>移速%</string>
