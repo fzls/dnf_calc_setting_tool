@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>918</width>
+    <width>932</width>
     <height>716</height>
    </rect>
   </property>
@@ -5229,6 +5229,77 @@
        </property>
       </spacer>
      </item>
+     <item>
+      <widget class="QLabel" name="label_72">
+       <property name="text">
+        <string>无装备暗抗</string>
+       </property>
+       <property name="buddy">
+        <cstring>petequipmentAttributes</cstring>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="darkResistance">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="placeholderText">
+        <string>暗抗</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_13">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_73">
+       <property name="text">
+        <string>无装备移速</string>
+       </property>
+       <property name="buddy">
+        <cstring>petequipmentAttributes</cstring>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="movingSpeed">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="placeholderText">
+        <string>移速%</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
    <item>
@@ -5411,6 +5482,8 @@
   <tabstop>finall</tabstop>
   <tabstop>crit</tabstop>
   <tabstop>skill</tabstop>
+  <tabstop>darkResistance</tabstop>
+  <tabstop>movingSpeed</tabstop>
   <tabstop>saveButton</tabstop>
  </tabstops>
  <resources/>
